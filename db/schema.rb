@@ -10,14 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_22_133041) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_22_210559) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "postal_codes", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "postal_codes", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_postal_codes_on_city_id"
+  end
+
+  add_foreign_key "postal_codes", "cities", on_delete: :restrict
 end
