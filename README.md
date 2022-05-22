@@ -15,7 +15,7 @@ On https://data.public.lu/en/datasets/registre-national-des-localites-et-des-rue
 - [ ] Modify the form so the Street is a select box. When the user selects a City, the Street select values change depending on the City selected.
 - [ ] Modify the form so the Number is a select box. When the user selects a Street, the Number select values change depending on the Street selected.
 - [x] New Rails 6.1 or 7 application
-- [ ] Postgres database
+- [x] Postgres database
 - [ ] Stimulus (JavaScript)
 
 ## Setup Ruby (only if you have not installed)
@@ -46,8 +46,29 @@ $ gem install bundler
 $ bundle
 ```
 
+## Database initialization
+
+Create a new file `config/application/yml` based on the template file `config/application.sample.yml`.
+
+Fill the default section with your database credentials.
+
+
+```bash
+# turn on docker
+$ docker-compose up -d
+
+# setup database
+$ bin/rails db:setup
+
+# run migrations
+$ bin/rails db:migrate
+```
+
 ## Start Project
 ```bash
+# turn on docker
+$ docker-compose up -d
+
 # run rails server
 $ bin/rails server
 ```
