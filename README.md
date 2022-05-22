@@ -14,7 +14,7 @@ On https://data.public.lu/en/datasets/registre-national-des-localites-et-des-rue
 - [ ] Modify the form so the City is a select box. When the user enters a Postal code, the City select values change depending on the Postal Code entered.
 - [ ] Modify the form so the Street is a select box. When the user selects a City, the Street select values change depending on the City selected.
 - [ ] Modify the form so the Number is a select box. When the user selects a Street, the Number select values change depending on the Street selected.
-- [ ] New Rails 6.1 or 7 application
+- [x] New Rails 6.1 or 7 application
 - [ ] Postgres database
 - [ ] Stimulus (JavaScript)
 
@@ -46,3 +46,8 @@ $ gem install bundler
 $ bundle
 ```
 
+## Start Project
+```bash
+# run rails server
+$ bin/rails server
+```
