@@ -11,12 +11,12 @@ On https://data.public.lu/en/datasets/registre-national-des-localites-et-des-rue
 ## Specifications
 
 - [ ] Import the addresses into a database
-- [ ] Modify the form so the City is a select box. When the user enters a Postal code, the City select values change depending on the Postal Code entered.
+- [x] Modify the form so the City is a select box. When the user enters a Postal code, the City select values change depending on the Postal Code entered.
 - [ ] Modify the form so the Street is a select box. When the user selects a City, the Street select values change depending on the City selected.
 - [ ] Modify the form so the Number is a select box. When the user selects a Street, the Number select values change depending on the Street selected.
 - [x] New Rails 6.1 or 7 application
 - [x] Postgres database
-- [ ] Stimulus (JavaScript)
+- [x] Stimulus (JavaScript)
 
 ## Setup Ruby (only if you have not installed)
 
