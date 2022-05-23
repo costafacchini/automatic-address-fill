@@ -5,6 +5,9 @@ class City < ApplicationRecord
   has_many :people,
            dependent: :restrict_with_error
 
+  has_many :street,
+           dependent: :restrict_with_error
+
   validates :code,
             presence: true
 

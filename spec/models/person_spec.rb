@@ -5,5 +5,11 @@ RSpec.describe Person, type: :model do
     it { is_expected.to belong_to(:city).required }
   end
 
-  it { is_expected.to validate_presence_of :name }
+  describe '#street' do
+    it { is_expected.to belong_to(:street).required }
+  end
+
+  describe '#name' do
+    it { is_expected.to validate_presence_of :name }
+  end
 end

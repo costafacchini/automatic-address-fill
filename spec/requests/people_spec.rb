@@ -14,9 +14,10 @@ require 'rails_helper'
 
 RSpec.describe "/people", type: :request do
   let(:city) { City.create!(name: 'City', code: '123') }
+  let(:street) { Street.create!(name: 'Rue Number 2', code: '483', city: city) }
 
   let(:valid_attributes) {
-    { name: 'John Doe', city_id: city.id }
+    { name: 'John Doe', city_id: city.id, street_id: street.id }
   }
 
   let(:invalid_attributes) {

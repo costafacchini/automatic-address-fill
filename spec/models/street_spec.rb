@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe PostalCode, type: :model do
+RSpec.describe Street, type: :model do
   describe '#code' do
     it { is_expected.to validate_presence_of :code }
+  end
+
+  describe '#name' do
+    it { is_expected.to validate_presence_of :name }
   end
 
   describe '#city' do

@@ -18,12 +18,17 @@
 
   <div>
     <%= form.label :postal_code, style: "display: block" %>
-    <%= form.text_field :postal_code, data: { action: "blur->cities#reload" } %>
+    <%= form.text_field :postal_code, data: { action: "blur->cities#cities" } %>
   </div>
 
   <div>
     <%= form.label :city_id, style: "display: block" %>
-    <%= form.select :city_id, (form.object.city_id.present? ? [[ form.object.city.name, form.object.city_id ]] : []), { prompt: true }, { data: { 'cities-target': 'name' } } %>
+    <%= form.select :city_id, (form.object.city_id.present? ? [[ form.object.city.name, form.object.city_id ]] : []), { prompt: true }, { data: { 'cities-target': 'name', action: "change->cities#streets" } } %>
+  </div>
+
+  <div>
+    <%= form.label :street_id, style: "display: block" %>
+    <%= form.select :street_id, (form.object.street_id.present? ? [[ form.object.street.name, form.object.street_id ]] : []), { prompt: true }, { data: { 'cities-target': 'street' } } %>
   </div>
 
   <div>
