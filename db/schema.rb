@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_231355) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_24_002113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,8 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_231355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "street_id", null: false
+    t.bigint "street_number_id", null: false
     t.index ["city_id"], name: "index_people_on_city_id"
     t.index ["street_id"], name: "index_people_on_street_id"
+    t.index ["street_number_id"], name: "index_people_on_street_number_id"
   end
 
   create_table "postal_codes", force: :cascade do |t|
@@ -38,6 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_231355) do
     t.datetime "updated_at", null: false
     t.bigint "city_id", null: false
     t.index ["city_id"], name: "index_postal_codes_on_city_id"
+  end
+
+  create_table "street_numbers", force: :cascade do |t|
+    t.string "number"
+    t.bigint "street_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["street_id"], name: "index_street_numbers_on_street_id"
   end
 
   create_table "streets", force: :cascade do |t|
@@ -50,7 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_231355) do
   end
 
   add_foreign_key "people", "cities"
+  add_foreign_key "people", "street_numbers", on_delete: :restrict
   add_foreign_key "people", "streets", on_delete: :restrict
   add_foreign_key "postal_codes", "cities", on_delete: :restrict
+  add_foreign_key "street_numbers", "streets"
   add_foreign_key "streets", "cities"
 end

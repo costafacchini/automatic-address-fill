@@ -12,4 +12,12 @@ RSpec.describe Street, type: :model do
   describe '#city' do
     it { is_expected.to belong_to(:city).required }
   end
+
+  describe '#street_numbers' do
+    it { is_expected.to have_many(:street_numbers).dependent(:restrict_with_error) }
+  end
+
+  describe '#people' do
+    it { is_expected.to have_many(:people).dependent(:restrict_with_error) }
+  end
 end

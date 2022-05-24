@@ -28,7 +28,12 @@
 
   <div>
     <%= form.label :street_id, style: "display: block" %>
-    <%= form.select :street_id, (form.object.street_id.present? ? [[ form.object.street.name, form.object.street_id ]] : []), { prompt: true }, { data: { 'cities-target': 'street' } } %>
+    <%= form.select :street_id, (form.object.street_id.present? ? [[ form.object.street.name, form.object.street_id ]] : []), { prompt: true }, { data: { 'cities-target': 'street', action: "change->cities#numbers" } } %>
+  </div>
+
+  <div>
+    <%= form.label :street_number_id, style: "display: block" %>
+    <%= form.select :street_number_id, (form.object.street_number_id.present? ? [[ form.object.street_number.number, form.object.street_number_id ]] : []), { prompt: true }, { data: { 'cities-target': 'number' } } %>
   </div>
 
   <div>
