@@ -10,7 +10,7 @@ On https://data.public.lu/en/datasets/registre-national-des-localites-et-des-rue
 
 ## Specifications
 
-- [ ] Import the addresses into a database
+- [x] Import the addresses into a database
 - [x] Modify the form so the City is a select box. When the user enters a Postal code, the City select values change depending on the Postal Code entered.
 - [x] Modify the form so the Street is a select box. When the user selects a City, the Street select values change depending on the City selected.
 - [x] Modify the form so the Number is a select box. When the user selects a Street, the Number select values change depending on the Street selected.
@@ -62,6 +62,9 @@ $ bin/rails db:setup
 
 # run migrations
 $ bin/rails db:migrate
+
+# import data (create folder `template` on root, download and extract files inside the folder)
+$ bin/rails db:seed
 ```
 
 ## Run tests
