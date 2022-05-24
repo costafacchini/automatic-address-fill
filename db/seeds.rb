@@ -8,3 +8,4 @@
 ImportCities.call('templates/LOCALITE')
 ImportPostalCodes.call('templates/CODEPT')
 ImportStreets.call('templates/RUE')
+ImportStreetNumbers.call('templates/IMMEUBLE')

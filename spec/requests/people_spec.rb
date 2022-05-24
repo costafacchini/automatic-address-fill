@@ -15,9 +15,10 @@ require 'rails_helper'
 RSpec.describe "/people", type: :request do
   let(:city) { City.create!(name: 'City', code: '123') }
   let(:street) { Street.create!(name: 'Rue Number 2', code: '483', city: city) }
+  let(:street_number) { StreetNumber.create!(number: '002', street: street) }
 
   let(:valid_attributes) {
-    { name: 'John Doe', city_id: city.id, street_id: street.id }
+    { name: 'John Doe', city_id: city.id, street_id: street.id, street_number_id: street_number.id }
   }
 
   let(:invalid_attributes) {
@@ -86,8 +87,11 @@ RSpec.describe "/people", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:city2) { City.create!(name: 'City 2', code: '456') }
+      let(:street2) { Street.create!(name: 'Rue Number 2', code: '483', city: city2) }
+      let(:street_number2) { StreetNumber.create!(number: '002', street: street2) }
+
       let(:new_attributes) {
-        { name: 'John Silva', city_id: city2.id }
+        { name: 'John Silva', city_id: city2.id, street_id: street2.id, street_number_id: street_number2.id }
       }
 
       it "updates the requested person" do
@@ -96,6 +100,8 @@ RSpec.describe "/people", type: :request do
         person.reload
         expect(person.name).to eq('John Silva')
         expect(person.city_id).to eq(city2.id)
+        expect(person.street_id).to eq(street2.id)
+        expect(person.street_number_id).to eq(street_number2.id)
       end
 
       it "redirects to the person" do

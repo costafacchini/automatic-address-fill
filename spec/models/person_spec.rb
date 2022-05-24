@@ -9,6 +9,10 @@ RSpec.describe Person, type: :model do
     it { is_expected.to belong_to(:street).required }
   end
 
+  describe '#street_number' do
+    it { is_expected.to belong_to(:street_number).required }
+  end
+
   describe '#name' do
     it { is_expected.to validate_presence_of :name }
   end
